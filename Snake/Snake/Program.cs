@@ -10,10 +10,15 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            HorizontalLine line = new HorizontalLine(5, 10, 8, '*');
-            VerticalLine vline = new VerticalLine(5, 3, 18, '#');
-            line.Draw();
-            vline.Draw();
+//            Console.SetBufferSize(80, 20);
+            Point p = new Point(4, 5, '*');
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Draw();
+            snake.Move();
+            snake.Move();
+            snake.Move();
+            snake.Move();
+
             Console.ReadKey();
         }
     }

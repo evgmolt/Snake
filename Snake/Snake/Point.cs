@@ -19,10 +19,23 @@ namespace Snake
             sym = _sym;
         }
 
-        public void Move(int dx, int dy)
+        public Point(Point p)
         {
-            x += dx;
-            y += dy;
+            x = p.x;
+            y = p.y;
+            sym = p.sym;
+        }
+
+        public void Move(int offset, Direction direction)
+        {
+            if (direction == Direction.LEFT)
+                x -= offset;
+            if (direction == Direction.RIGHT)
+                x += offset;
+            if (direction == Direction.UP)
+                y -= offset;
+            if (direction == Direction.DOWN)
+                y += offset;
         }
         public void Draw()
         {
@@ -30,5 +43,15 @@ namespace Snake
             Console.Write(sym);
         }
 
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
+
+        public override string ToString()
+        {
+            return x + ", " + y +"," +sym;
+        }
     }
 }
